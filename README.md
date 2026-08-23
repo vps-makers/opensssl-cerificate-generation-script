@@ -2,6 +2,12 @@
 this script used for generating ssl certificate using PowerShell script with OpenSSL, it's automate naming certificate to choose where the certificate will be placed.
 ## How to Use
 To use the script, first make sure OpenSSL is installed on your Windows Server and available through the system PATH. Save the PowerShell script as a .ps1 file, open PowerShell, and run the script. The script checks for OpenSSL automatically and displays an error if it cannot find it.
+
 When the script starts, enter the directory where you want to save the generated certificate files. Next, enter the primary domain or hostname that will be used as the certificate's Common Name (CN). You can then enter additional DNS names as SAN entries, separated by commas. The primary hostname is automatically included in the SAN list.
+
 After entering the SANs, specify a custom base name for the certificate files. The script uses this name to automatically generate the OpenSSL configuration file, private key, certificate, and PFX file. For example, if you enter myserver as the base name, the script creates myserver-openssl.cnf, myserver.key, myserver.crt, and myserver.pfx in the selected directory.
+
 The script then creates the OpenSSL configuration and generates a 2048-bit RSA private key and a self-signed certificate valid for 365 days. Finally, it exports the certificate and private key to a password-protected PFX file. Keep the .key and .pfx files secure because they contain or provide access to the certificate's private key.
+
+## Read More
+If you want to learn more about generating SSL/TLS certificates on Windows Server, you can also read about [certificate-generation](https://vpsmakers.com/generate-ssl-certificate-windows/) methods such as AD CS, PowerShell, OpenSSL, and Let's Encrypt. Each method is suitable for different environments, so choosing the right approach depends on whether you need a certificate for internal services, testing, Active Directory environments, or a publicly accessible website.
